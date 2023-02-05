@@ -13,6 +13,7 @@ input.addEventListener(
   'input',
   debounce(e => {
     const inputValue = input.value.trim();
+    cleanHtml();
     if (inputValue !== '') {
       fetchCountries(inputValue).then(data => {
         if (data.length > 10) {
@@ -59,6 +60,7 @@ function renderOneCountryList(countries) {
     .join('');
   countryList.innerHTML = markup;
 }
+
 function cleanHtml() {
   countryList.innerHTML = '';
   countryInfo.innerHTML = '';

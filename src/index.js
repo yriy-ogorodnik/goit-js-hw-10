@@ -59,3 +59,7 @@ function renderOneCountryList(countries) {
     .join('');
   countryList.innerHTML = markup;
 }
+function cleanHtml() {
+  countryList.innerHTML = '';
+  countryInfo.innerHTML = '';
+}

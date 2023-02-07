@@ -2,7 +2,7 @@ import './css/styles.css';
 import Notiflix from 'notiflix';
 import debounce from 'lodash.debounce';
 import { fetchCountries } from './js/fetchCountries.js';
-console.log('fetchCountries', fetchCountries('peru'));
+
 
 const DEBOUNCE_DELAY = 300;
 const input = document.querySelector('#search-box');
@@ -37,7 +37,7 @@ function renderCountryList(countries) {
     .map(country => {
       return `<li>
       <img src="${country.flags.svg}" alt="Flag of ${country.name.official}" width="30" hight="20">
-         <p>${country.name}</p>
+         <b>${country.name}</b>
          </li>`;
     })
     .join('');
@@ -48,13 +48,11 @@ function renderOneCountryList(countries) {
   const markup = countries
     .map(country => {
       return `<li>
-      <img src="${country.flags.svg}" alt="Flag of ${
-        country.name.official
-      }" width="30" hight="20">
-         <p><b>${country.name}<b></p>
+      <img src="${country.flags.svg}" alt="Flag of ${country.name.official}" width="30" hight="20">
+         <b>${country.name}<b>
          <p><b>Capital</b>: ${country.capital}</p>
          <p><b>Population</b>: ${country.population}</p>
-         <p><b>Languages</b>: ${Object.values(country.languages)} </p>
+         <p><b>Languages</b>: ${country.languages[0].name} </p>
          </li>`;
     })
     .join('');

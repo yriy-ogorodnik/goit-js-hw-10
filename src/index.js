@@ -36,7 +36,7 @@ function renderCountryList(countries) {
     .map(country => {
       return `<li>
       <img src="${country.flags.svg}" alt="Flag of ${country.name.official}" width="30" hight="20">
-         <b>${country.name}</b>
+         <b>${country.name.official}</b>
          </li>`;
     })
     .join('');
@@ -50,7 +50,7 @@ function renderOneCountryList(countries) {
       <img src="${country.flags.svg}" alt="Flag of ${
         country.name.official
       }" width="30" hight="20">
-         <b>${country.name}<b>
+      <b>${country.name.official}<b>
          <p><b>Capital</b>: ${country.capital}</p>
          <p><b>Population</b>: ${country.population}</p>
          <p><b>Languages</b>: ${Object.values(country.languages).join(
